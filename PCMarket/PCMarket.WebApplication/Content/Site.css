@@ -5,4 +5,21 @@
 .affix {
     position: fixed;
     width: 100%;
+    top: 0;
+}
+
+#exchanger-container {
+    position: relative;
+    min-height: 400px;
+}
+
+#exchanger {
+    max-width: 1200px;
+    width: 1080px;
+    height: 400px;
+    max-height: 400px;
+}
+
+#exchanger > img {
+    max-width: 1200px;
 }

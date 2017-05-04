@@ -13,8 +13,8 @@
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
                         "~/Scripts/common.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/navbarAffix").Include(
-                        "~/Scripts/navbar-affix.js"));
+            bundles.Add(new ScriptBundle("~/bundles/image-exchanger").Include(
+                        "~/Scripts/imageExchanger.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -32,7 +32,7 @@
                       "~/Content/bootstrap.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/theme").Include(
-                        "~/Content/bootstrap.lumen.min.css"));
+                        "~/Content/bootstrap.readable.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/custom").Include(
                         "~/Content/Site.css"));

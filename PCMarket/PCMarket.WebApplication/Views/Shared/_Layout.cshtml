@@ -2,12 +2,13 @@
 <html>
 @Html.Partial("_Head")
 <body data-spy="scroll" data-target=".navbar">
+    @Html.Partial("_ImageExchanger")
     @Html.Partial("_Navbar")
     <div class="container">
         @RenderBody()
         <hr />
         @Html.Partial("_Footer")
     </div>
-@RenderSection("scripts", false)
+    @RenderSection("scripts", false)
 </body>
 </html>
