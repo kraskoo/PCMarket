@@ -1,0 +1,8 @@
+﻿body {
+    padding: 0;
+}
+
+.affix {
+    position: fixed;
+    width: 100%;
+}

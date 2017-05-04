@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F226AC8B-3974-4A5A-AFC4-5D49E1EDBE0A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PCMarket.Data</RootNamespace>
+    <AssemblyName>PCMarket.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\CompanyConfigurations.cs" />
+    <Compile Include="DataModels\ContextFactory.cs" />
+    <Compile Include="DataModels\CrudOperations\CreateEntity.cs" />
+    <Compile Include="DataModels\CrudOperations\DeleteEntity.cs" />
+    <Compile Include="DataModels\CrudOperations\UpdateEntity.cs" />
+    <Compile Include="DataModels\DataWorker.cs" />
+    <Compile Include="DataModels\PcMarketContextFactory.cs" />
+    <Compile Include="DataModels\PcMarketUnitOfWork.cs" />
+    <Compile Include="DataModels\UnitOfWork.cs" />
+    <Compile Include="Enums\State.cs" />
+    <Compile Include="Interfaces\CrudOperations\ICreateable.cs" />
+    <Compile Include="Interfaces\CrudOperations\IDeleteable.cs" />
+    <Compile Include="Interfaces\CrudOperations\IUpdateable.cs" />
+    <Compile Include="Interfaces\IAdminUserRepository.cs" />
+    <Compile Include="Interfaces\ICategoryRepository.cs" />
+    <Compile Include="Interfaces\ICompanyRepository.cs" />
+    <Compile Include="Interfaces\IContextFactory.cs" />
+    <Compile Include="Interfaces\ICrudAdapter.cs" />
+    <Compile Include="Interfaces\IDataWorker.cs" />
+    <Compile Include="Interfaces\IIdentityRepository.cs" />
+    <Compile Include="Interfaces\IPcMarketContextFactory.cs" />
+    <Compile Include="Interfaces\IPcMarketUnitOfWork.cs" />
+    <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Interfaces\IRegularUserRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Migrations\201705032026365_Initial.cs" />
+    <Compile Include="Migrations\201705032026365_Initial.Designer.cs">
+      <DependentUpon>201705032026365_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PcMarketContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AdminUserRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\CompanyRepository.cs" />
+    <Compile Include="Repositories\IdentityRepository.cs" />
+    <Compile Include="Repositories\PcMarketRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\RegularUserRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RepositoryCrudAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCMarket.Common\PCMarket.Common.csproj">
+      <Project>{f4207a89-32f8-4756-9137-dfdbb174d022}</Project>
+      <Name>PCMarket.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCMarket.Models\PCMarket.Models.csproj">
+      <Project>{63A3316E-6C07-440E-B330-402C4EE95525}</Project>
+      <Name>PCMarket.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705032026365_Initial.resx">
+      <DependentUpon>201705032026365_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

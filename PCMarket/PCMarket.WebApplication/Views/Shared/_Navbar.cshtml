@@ -1,0 +1,20 @@
+﻿<nav class="navbar navbar-default navbar-static-top affix-top" data-spy="affix" data-offset-top="180">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand">Pc Market</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("About", "Home")">About</a></li>
+                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</nav>
