@@ -1,22 +1,27 @@
 ﻿namespace PCMarket.Data.Repositories
 {
     using DataModels;
+    using DataModels.CrudOperations;
     using Interfaces;
-    using Interfaces.CrudOperations;
-    using Models.Entities;
+    using Models.Entities.Users;
 
     public class RegularUserRepository : PcMarketRepository<RegularUser>, IRegularUserRepository
     {
         public RegularUserRepository(
             PcMarketContextFactory context,
-            ICreateable<RegularUser> create,
-            IUpdateable<RegularUser> update,
-            IDeleteable<RegularUser> delete) : base(context, create, update, delete)
+            RepositoryCrudAdapter<RegularUser> crudAdapter) : base(
+                context, crudAdapter)
         {
         }
 
-        public RegularUserRepository(PcMarketContextFactory context) : base(context)
+        public RegularUserRepository(PcMarketContextFactory context) : this(
+            context,
+            new RepositoryCrudAdapter<RegularUser>(
+                new CreateEntity<RegularUser>(context),
+                new UpdateEntity<RegularUser>(context),
+                new DeleteEntity<RegularUser>(context)))
         {
+            
         }
     }
 }

@@ -2,49 +2,16 @@
 {
     using System.Threading.Tasks;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using ApplicationModels;
-    using Data;
-    using Data.DataModels;
     using Models.ViewModels.Identity;
-    using Services.UserServices;
 
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
-        private UserService userService;
-
-        public AccountController()
-        {
-        }
-
-        public AccountController(UserService service)
-        {
-            this.UserService = service;
-        }
-
-        public UserService UserService
-        {
-            get
-            {
-                return this.userService ?? (this.userService =
-                    new UserService(
-                        new PcMarketContextFactory(
-                            PcMarketContext.Create()),
-                        this.HttpContext.GetOwinContext()));
-            }
-
-            private set
-            {
-                this.userService = value;
-            }
-        }
-
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -78,7 +45,7 @@
                     return this.RedirectToAction("SendCode", new { ReturnUrl = returnUrl, model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    this.ModelState.AddModelError("", "Invalid login attempt.");
+                    this.ModelState.AddModelError("", @"Invalid login attempt.");
                     return this.View(model);
             }
         }
@@ -240,12 +207,14 @@
             {
                 return this.View(model);
             }
+
             var user = await this.UserService.IdentityService.FindByEmailAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
                 return this.RedirectToAction("ResetPasswordConfirmation", "Account");
             }
+
             var result = await this.UserService.IdentityService.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
@@ -316,7 +285,10 @@
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
-            var loginInfo = await this.AuthenticationManager.GetExternalLoginInfoAsync();
+            var loginInfo = await this.UserService
+                .IdentityService
+                .AuthenticationManager
+                .GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
                 return this.RedirectToAction("Login");
@@ -356,7 +328,10 @@
             if (this.ModelState.IsValid)
             {
                 // Get the information about the user from the external login provider
-                var info = await this.AuthenticationManager.GetExternalLoginInfoAsync();
+                var info = await this.UserService
+                    .IdentityService
+                    .AuthenticationManager
+                    .GetExternalLoginInfoAsync();
                 if (info == null)
                 {
                     return this.View("ExternalLoginFailure");
@@ -387,7 +362,10 @@
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            this.AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            this.UserService
+                .IdentityService
+                .AuthenticationManager
+                .SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return this.RedirectToAction("Index", "Home");
         }
 
@@ -402,9 +380,6 @@
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
-
-        private IAuthenticationManager AuthenticationManager =>
-            HttpContext.GetOwinContext().Authentication;
 
         private void AddErrors(IdentityResult result)
         {

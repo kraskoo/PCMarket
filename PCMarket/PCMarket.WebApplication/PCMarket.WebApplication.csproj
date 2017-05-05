@@ -181,6 +181,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\LayoutAttribute.cs" />
     <Compile Include="ApplicationModels\ChallengeResult.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -188,8 +189,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ComponentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Enums\ManageMessageId.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,11 +252,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -277,9 +279,20 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Shared\_ImageExchanger.cshtml" />
+    <Content Include="Views\Admin\AddSoftwareNew.cshtml" />
+    <Content Include="Views\News\SoftwareNewsById.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminNavbar.cshtml" />
+    <Content Include="Views\News\Software.cshtml" />
+    <Content Include="Views\News\Hardware.cshtml" />
+    <Content Include="Views\News\HardwareNewsById.cshtml" />
+    <Content Include="Views\Admin\AddHardwareNew.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Admin\EditSoftwareNew.cshtml" />
+    <Content Include="Views\Admin\EditHardwareNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Component\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -287,6 +300,10 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PCMarket.Common\PCMarket.Common.csproj">
+      <Project>{F4207A89-32F8-4756-9137-DFDBB174D022}</Project>
+      <Name>PCMarket.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PCMarket.Data\PCMarket.Data.csproj">
       <Project>{F226AC8B-3974-4A5A-AFC4-5D49E1EDBE0A}</Project>
       <Name>PCMarket.Data</Name>

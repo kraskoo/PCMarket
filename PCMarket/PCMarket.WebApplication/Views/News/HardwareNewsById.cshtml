@@ -1,0 +1,18 @@
+﻿@using PCMarket.Models.ViewModels.News
+@model HardwareNewViewModel
+@{
+    ViewBag.Title = "Hardware News";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="center-block">
+            <h1 class="text-danger text-capitalize">@Model.Title</h1>
+        </div>
+    </div>
+    <p class="text-muted text-right">@Model.Subject</p>
+    <hr />
+    <div class="row">
+        <p class="text-justify">@Model.Body</p>
+    </div>
+</div>

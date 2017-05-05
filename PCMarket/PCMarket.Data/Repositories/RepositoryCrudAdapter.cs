@@ -3,13 +3,13 @@
     using System.Threading.Tasks;
     using Interfaces.CrudOperations;
 
-    public abstract class RepositoryCrudAdapter<TEntity> :
+    public class RepositoryCrudAdapter<TEntity> :
         ICreateable<TEntity>,
         IUpdateable<TEntity>,
         IDeleteable<TEntity>
         where TEntity : class, new()
     {
-        protected RepositoryCrudAdapter(
+        public RepositoryCrudAdapter(
             ICreateable<TEntity> create,
             IUpdateable<TEntity> update,
             IDeleteable<TEntity> delete)
@@ -25,20 +25,44 @@
 
         protected IDeleteable<TEntity> Deleteable { get; }
 
-        public abstract void Create(TEntity entity);
+        public void Create(TEntity entity)
+        {
+            this.Createable.Create(entity);
+        }
 
-        public abstract Task CreateAsync(TEntity entity);
+        public Task CreateAsync(TEntity entity)
+        {
+            return this.Createable.CreateAsync(entity);
+        }
 
-        public abstract void Create(params TEntity[] entities);
+        public void Create(params TEntity[] entities)
+        {
+            this.Createable.Create(entities);
+        }
 
-        public abstract Task CreateAsync(params TEntity[] entities);
+        public Task CreateAsync(params TEntity[] entities)
+        {
+            return this.Createable.CreateAsync(entities);
+        }
 
-        public abstract void Delete(TEntity entity);
+        public void Delete(TEntity entity)
+        {
+            this.Deleteable.Delete(entity);
+        }
 
-        public abstract Task DeleteAsync(TEntity entity);
+        public Task DeleteAsync(TEntity entity)
+        {
+            return this.Deleteable.DeleteAsync(entity);
+        }
 
-        public abstract void Update(TEntity entity);
+        public void Update(TEntity entity)
+        {
+            this.Updateable.Update(entity);
+        }
 
-        public abstract Task UpdateAsync(TEntity entity);
+        public Task UpdateAsync(TEntity entity)
+        {
+            return this.Updateable.UpdateAsync(entity);
+        }
     }
 }

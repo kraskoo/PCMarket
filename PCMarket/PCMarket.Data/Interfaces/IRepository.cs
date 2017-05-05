@@ -5,7 +5,7 @@
     using System.Linq.Expressions;
     using System.Threading.Tasks;
 
-    public interface IRepository<T> : ICrudAdapter<T>
+    public interface IRepository<T>
         where T : class, new()
     {
         T Find(Expression<Func<T, bool>>[] wheres);

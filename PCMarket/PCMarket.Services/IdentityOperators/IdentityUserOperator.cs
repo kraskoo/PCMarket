@@ -2,10 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
     using Managers;
-    using Models.Entities;
+    using Models.Entities.Users;
 
     public class IdentityUserOperator : IDisposable
     {
@@ -14,6 +15,11 @@
         public IdentityUserOperator(UserManager userManager)
         {
             this.userManager = userManager;
+        }
+
+        public void Create(User user)
+        {
+            this.userManager.Create(user);
         }
 
         public Task<IdentityResult> CreateAsync(User user)
@@ -109,6 +115,11 @@
         public Task<User> FindByNameAsyncExt(string email)
         {
             return this.userManager.FindByNameAsync(email);
+        }
+
+        public IQueryable<User> FindAll()
+        {
+            return this.userManager.FindAll();
         }
 
         public Task<IdentityResult> ResetPasswordAsync(string id, string code, string password)

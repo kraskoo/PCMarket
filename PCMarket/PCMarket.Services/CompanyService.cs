@@ -3,19 +3,16 @@
     using Microsoft.Owin;
     using Data.DataModels;
     using Data.Interfaces;
-    using Data.Repositories;
     using Interfaces;
 
-    public class CompanyService : Service, ICompanyService
+    public class CompanyService : Service<ICompanyUnitOfWork>, ICompanyService
     {
-        private ICompanyRepository companyRepository;
-
         public CompanyService(
             PcMarketContextFactory contextFactory,
+            ICompanyUnitOfWork unitOfWork,
             IOwinContext context) : base(
-                contextFactory, context)
+                contextFactory, unitOfWork, context)
         {
-            this.companyRepository = new CompanyRepository(this.ContextFactory);
         }
 
         public void AddCompany()

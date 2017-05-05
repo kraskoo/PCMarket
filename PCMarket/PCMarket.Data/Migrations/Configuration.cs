@@ -9,16 +9,16 @@ namespace PCMarket.Data.Migrations
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(PcMarketContext context)
         {
             if (!context.Roles.Any())
             {
-                context.Roles.Add(new IdentityRole(Role.Admin.ToString()));
-                context.Roles.Add(new IdentityRole(Role.Client.ToString()));
-                context.Roles.Add(new IdentityRole(Role.Regular.ToString()));
+                context.Roles.Add(new IdentityRole(RoleType.Admin.ToString()));
+                context.Roles.Add(new IdentityRole(RoleType.Client.ToString()));
+                context.Roles.Add(new IdentityRole(RoleType.Regular.ToString()));
             }
         }
     }

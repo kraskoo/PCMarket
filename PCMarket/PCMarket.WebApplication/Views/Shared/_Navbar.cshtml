@@ -10,7 +10,25 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "Home")" class="dropdown-toggle" data-toggle="dropdown">News
+                        <span class="caret"></span>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Software", "News")">Software News</a></li>
+                            <li><a href="@Url.Action("Hardware", "News")">Hardware News</a></li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "Home")" class="dropdown-toggle" data-toggle="dropdown">Categories
+                        <span class="caret"></span>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Home")">Category 1</a></li>
+                            <li><a href="@Url.Action("Index", "Home")">Category 2</a></li>
+                            <li><a href="@Url.Action("Index", "Home")">Category 3</a></li>
+                        </ul>
+                    </a>
+                </li>
                 <li><a href="@Url.Action("About", "Home")">About</a></li>
                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
             </ul>

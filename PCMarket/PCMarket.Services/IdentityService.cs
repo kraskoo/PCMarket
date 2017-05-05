@@ -8,29 +8,34 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
+    using Microsoft.Owin.Security;
     using Data.DataModels;
+    using Data.Interfaces;
     using Data.Repositories;
     using Managers;
-    using Models.Entities;
+    using Models.Entities.Users;
     using Models.ViewModels.Identity;
     using IdentityOperators;
 
-    public class IdentityService : Service, IDisposable
+    public class IdentityService : Service<IIdentityUnitOfWork>, IDisposable
     {
-        private readonly IdentityRepository repository;
+        private readonly AuthenticationManager authentication;
 
         public IdentityService(
             PcMarketContextFactory contextFactory,
+            IIdentityUnitOfWork unitOfWork,
             IOwinContext context,
             IdentityUserOperator userManagar,
             RoleManager roleManager,
-            IdentitySignInOperator signInManager) : base(contextFactory, context)
+            IdentitySignInOperator signInManager) : base(contextFactory, unitOfWork, context)
         {
             this.UserOperator = userManagar;
             this.RoleManager = roleManager;
             this.SignInOperator = signInManager;
-            this.repository = new IdentityRepository(this.ContextFactory);
+            this.authentication = new AuthenticationManager(this.OwinContext);
         }
+
+        public IAuthenticationManager AuthenticationManager => this.authentication.Manager;
 
         public IdentityUserOperator UserOperator { get; private set; }
 
@@ -184,9 +189,9 @@
 
         public User CreateUser(User user)
         {
-            if (this.repository.FindAll().Any())
+            if (this.UnitOfWork.Identity.FindAll().Any())
             {
-                this.repository.Create(user);
+                this.UserOperator.Create(user);
                 var regularRole = RoleManager.FindByName("Regular");
                 var userRole = new IdentityUserRole
                 {
@@ -198,7 +203,7 @@
             }
             else
             {
-                this.repository.Create(user);
+                this.UserOperator.Create(user);
                 var regularRole = RoleManager.FindByName("Admin");
                 var userRole = new IdentityUserRole
                 {
@@ -227,15 +232,18 @@
             return this.UserOperator.FindByEmailAsync(email);
         }
 
-        public static IdentityService Create(PcMarketContextFactory factory, IOwinContext owinContext)
+        public static IdentityService Create(PcMarketContextFactory contextFactory, IOwinContext owinContext)
         {
             return new IdentityService(
-                factory,
+                contextFactory,
+                new IdentityUnitOfWork(
+                    contextFactory.DataWorker,
+                    new IdentityRepository(contextFactory)),
                 owinContext,
                 IdentityUserOperator.Create(
                     UserManager.Create(
                         new IdentityFactoryOptions<UserManager>(),
-                        owinContext)), 
+                        owinContext)),
                 RoleManager.Create(
                     new IdentityFactoryOptions<RoleManager>(),
                     owinContext),

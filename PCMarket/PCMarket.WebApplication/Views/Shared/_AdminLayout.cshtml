@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html>
+@Html.Partial("_Head")
+<body>
+    @Html.Partial("_ImageExchanger")
+    @Html.Partial("_AdminNavbar")
+    <div class="container">
+        @RenderBody()
+        <hr />
+        @Html.Partial("_Footer")
+    </div>
+    @RenderSection("scripts", false)
+</body>
+</html>

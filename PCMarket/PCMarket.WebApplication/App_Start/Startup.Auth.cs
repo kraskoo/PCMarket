@@ -7,9 +7,8 @@
     using Microsoft.Owin.Security.Cookies;
     using Owin;
     using Data;
-    using Models.Entities;
+    using Models.Entities.Users;
     using Services.Managers;
-
 
     public partial class Startup
     {

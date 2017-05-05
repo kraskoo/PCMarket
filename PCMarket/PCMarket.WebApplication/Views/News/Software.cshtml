@@ -1,0 +1,45 @@
+﻿@using PCMarket.Models.ViewModels.News
+@model IEnumerable<SoftwareNewViewModel>
+@{
+    ViewBag.Title = "Software News";
+}
+
+<h2>Software News</h2>
+
+<table class="table table-responsive">
+    <tr>
+        <th>Title</th>
+        <th>Subject</th>
+        <th>Body</th>
+        <th>Full content</th>
+        @if (this.User.IsInRole("Admin"))
+        {
+            <th>Edit</th>
+            <th>Delete</th>
+        }
+    </tr>
+    @foreach (var softNew in Model)
+    {
+        <tr>
+            <td>@string.Join(string.Empty, softNew.Title.Take(30))...</td>
+            <td>@softNew.Subject</td>
+            <td>@string.Join(string.Empty, softNew.Body.Take(30))...</td>
+            <td><a href="@Url.Action("SoftwareNewsById", "News", new { id = softNew.Id })" class="btn btn-default" role="button">Read More</a></td>
+            @if (this.User.IsInRole("Admin"))
+            {
+                <td>
+                    @using (Html.BeginForm("EditSoftwareNew", "Admin", new { id = softNew.Id }, FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        <input type="submit" class="btn btn-default" role="button" name="@softNew.Id" value="Edit" />
+                    }
+                </td>
+                <td>
+                    @using(Html.BeginForm("DeleteSoftwareNew", "Admin", new { id = softNew.Id }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        <input type="submit" class="btn btn-default" role="button" name="@softNew.Id" value="Delete" />
+                    }
+                </td>
+            }
+        </tr>
+    }
+</table>

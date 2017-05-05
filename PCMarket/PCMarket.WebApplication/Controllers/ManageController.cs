@@ -2,58 +2,27 @@
 {
     using System.Linq;
     using System.Threading.Tasks;
-    using System.Web;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security;
     using ApplicationModels;
-    using Data;
-    using Data.DataModels;
-    using Services.UserServices;
     using Enums;
     using Models.ViewModels.Identity;
 
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
-        private UserService userService;
-
-        public ManageController()
-        {
-        }
-
-        public ManageController(UserService service)
-        {
-            this.UserService = service;
-        }
-
-        public UserService UserService
-        {
-            get
-            {
-                return this.userService ?? (this.userService = new UserService(
-                    new PcMarketContextFactory(PcMarketContext.Create()),
-                    this.HttpContext.GetOwinContext()));
-            }
-
-            private set
-            {
-                this.userService = value;
-            }
-        }
-
-        //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             this.ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
-                : "";
+                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed." :
+                message == ManageMessageId.SetPasswordSuccess ? "Your password has been set." :
+                message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set." :
+                message == ManageMessageId.Error ? "An error has occurred." :
+                message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added." :
+                message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed." :
+                "";
 
             var userId = this.User.Identity.GetUserId();
             var model = new IndexViewModel
@@ -62,7 +31,10 @@
                 PhoneNumber = await this.UserService.IdentityService.GetPhoneNumberAsync(userId),
                 TwoFactor = await this.UserService.IdentityService.GetTwoFactorEnabledAsync(userId),
                 Logins = await this.UserService.IdentityService.GetLoginsAsync(userId),
-                BrowserRemembered = await this.AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await this.UserService
+                    .IdentityService
+                    .AuthenticationManager
+                    .TwoFactorBrowserRememberedAsync(userId)
             };
 
             return this.View(model);
@@ -187,10 +159,11 @@
                 {
                     await this.UserService.IdentityService.SignInAsync(user, false, false);
                 }
+
                 return this.RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
             }
             // If we got this far, something failed, redisplay form
-            this.ModelState.AddModelError("", "Failed to verify phone");
+            this.ModelState.AddModelError("", @"Failed to verify phone");
             return this.View(model);
         }
 
@@ -298,7 +271,12 @@
             }
 
             var userLogins = await this.UserService.IdentityService.GetLoginsAsync(this.User.Identity.GetUserId());
-            var otherLogins = this.AuthenticationManager.GetExternalAuthenticationTypes().Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
+            var otherLogins = this.UserService
+                .IdentityService
+                .AuthenticationManager
+                .GetExternalAuthenticationTypes()
+                .Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider))
+                .ToList();
             this.ViewBag.ShowRemoveButton = user.PasswordHash != null || userLogins.Count > 1;
             return this.View(new ManageLoginsViewModel
             {
@@ -321,7 +299,10 @@
         // GET: /Manage/LinkLoginCallback
         public async Task<ActionResult> LinkLoginCallback()
         {
-            var loginInfo = await this.AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, this.User.Identity.GetUserId());
+            var loginInfo = await this.UserService
+                .IdentityService
+                .AuthenticationManager
+                .GetExternalLoginInfoAsync(XsrfKey, this.User.Identity.GetUserId());
             if (loginInfo == null)
             {
                 return this.RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
@@ -334,9 +315,6 @@
 #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
-
-        private IAuthenticationManager AuthenticationManager =>
-            HttpContext.GetOwinContext().Authentication;
 
         private void AddErrors(IdentityResult result)
         {

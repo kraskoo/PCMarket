@@ -4,7 +4,7 @@
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity.Owin;
     using Managers;
-    using Models.Entities;
+    using Models.Entities.Users;
     using Models.ViewModels.Identity;
 
     public class IdentitySignInOperator : IDisposable

@@ -7,12 +7,32 @@
     {
         public CompanyConfigurations()
         {
-            this.HasMany(c => c.Categories)
-                .WithRequired(c => c.Company)
+            this.HasOptional(c => c.BackupDevices)
+                .WithRequired()
                 .WillCascadeOnDelete(false);
 
-            this.HasMany(c => c.Products)
-                .WithRequired(p => p.Company)
+            this.HasOptional(c => c.HardDrives)
+                .WithRequired()
+                .WillCascadeOnDelete(false);
+
+            this.HasOptional(c => c.Motherboards)
+                .WithRequired()
+                .WillCascadeOnDelete(false);
+
+            this.HasOptional(c => c.Processors)
+                .WithRequired()
+                .WillCascadeOnDelete(false);
+
+            this.HasOptional(c => c.SolidStateDrives)
+                .WithRequired()
+                .WillCascadeOnDelete(false);
+
+            this.HasOptional(c => c.UsbFlashes)
+                .WithRequired()
+                .WillCascadeOnDelete(false);
+
+            this.HasOptional(c => c.VideoCards)
+                .WithRequired()
                 .WillCascadeOnDelete(false);
         }
     }

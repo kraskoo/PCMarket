@@ -118,7 +118,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoryService.cs" />
     <Compile Include="CompanyService.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="IdentityOperators\IdentitySignInOperator.cs" />
@@ -126,14 +125,15 @@
     <Compile Include="IdentityService.cs" />
     <Compile Include="Interfaces\ICompanyService.cs" />
     <Compile Include="Managers\ApplicationSignInManager.cs" />
+    <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\RoleManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="NewsService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="SmsService.cs" />
     <Compile Include="UserServices\UserService.cs" />
-    <Compile Include="UserServices\UserServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

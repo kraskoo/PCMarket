@@ -3,18 +3,30 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using Cores;
     using Common;
     using Interfaces;
+    using StorageDevices;
 
     public class Company : IModel<int>
     {
-        private ICollection<Category> categories;
-        private ICollection<Product> products;
+        private ICollection<Motherboard> motherboards;
+        private ICollection<Processor> processors;
+        private ICollection<VideoCard> videoCards;
+        private ICollection<HardDrive> hardDrives;
+        private ICollection<SolidStateDrive> solidStateDrives;
+        private ICollection<BackupDevice> backupDevices;
+        private ICollection<UsbFlash> usbFlashes;
 
         public Company()
         {
-            this.categories = new HashSet<Category>();
-            this.products = new HashSet<Product>();
+            this.motherboards = new HashSet<Motherboard>();
+            this.processors = new HashSet<Processor>();
+            this.videoCards = new HashSet<VideoCard>();
+            this.hardDrives = new HashSet<HardDrive>();
+            this.solidStateDrives = new HashSet<SolidStateDrive>();
+            this.backupDevices = new HashSet<BackupDevice>();
+            this.usbFlashes = new HashSet<UsbFlash>();
         }
 
         public int Id { get; set; }
@@ -36,16 +48,46 @@
         [Display(Name = "Establish On")]
         public DateTime? EstablishOn { get; set; }
 
-        public virtual ICollection<Category> Categories
+        public virtual ICollection<Motherboard> Motherboards
         {
-            get { return this.categories; }
-            set { this.categories = value; }
+            get { return this.motherboards; }
+            set { this.motherboards = value; }
         }
 
-        public virtual ICollection<Product> Products
+        public virtual ICollection<Processor> Processors
         {
-            get { return this.products; }
-            set { this.products = value; }
+            get { return this.processors; }
+            set { this.processors = value; }
+        }
+
+        public virtual ICollection<VideoCard> VideoCards
+        {
+            get { return this.videoCards; }
+            set { this.videoCards = value; }
+        }
+
+        public virtual ICollection<HardDrive> HardDrives
+        {
+            get { return this.hardDrives; }
+            set { this.hardDrives = value; }
+        }
+
+        public virtual ICollection<SolidStateDrive> SolidStateDrives
+        {
+            get { return this.solidStateDrives; }
+            set { this.solidStateDrives = value; }
+        }
+
+        public virtual ICollection<BackupDevice> BackupDevices
+        {
+            get { return this.backupDevices; }
+            set { this.backupDevices = value; }
+        }
+
+        public virtual ICollection<UsbFlash> UsbFlashes
+        {
+            get { return this.usbFlashes; }
+            set { this.usbFlashes = value; }
         }
     }
 }

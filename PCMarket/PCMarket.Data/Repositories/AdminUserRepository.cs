@@ -1,21 +1,25 @@
 ﻿namespace PCMarket.Data.Repositories
 {
-    using Interfaces;
-    using Interfaces.CrudOperations;
     using DataModels;
-    using Models.Entities;
+    using DataModels.CrudOperations;
+    using Interfaces;
+    using Models.Entities.Users;
 
     public class AdminUserRepository : PcMarketRepository<AdminUser>, IAdminUserRepository
     {
         public AdminUserRepository(
             PcMarketContextFactory context,
-            ICreateable<AdminUser> create,
-            IUpdateable<AdminUser> update,
-            IDeleteable<AdminUser> delete) : base(context, create, update, delete)
+            RepositoryCrudAdapter<AdminUser> crudAdapter) : base(
+                context, crudAdapter)
         {
         }
 
-        public AdminUserRepository(PcMarketContextFactory context) : base(context)
+        public AdminUserRepository(PcMarketContextFactory context) : this(
+            context,
+            new RepositoryCrudAdapter<AdminUser>(
+                new CreateEntity<AdminUser>(context),
+                new UpdateEntity<AdminUser>(context),
+                new DeleteEntity<AdminUser>(context)))
         {
         }
     }
