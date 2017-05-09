@@ -2,24 +2,123 @@
     padding: 0;
 }
 
-.affix {
-    position: fixed;
-    width: 100%;
-    top: 0;
+.list-group {
+    width: 200px;
 }
 
-#exchanger-container {
-    position: relative;
-    min-height: 400px;
+.affix {
+    width: 100%;
+    top: 0;
 }
 
 #exchanger {
     max-width: 1200px;
     width: 1080px;
-    height: 400px;
-    max-height: 400px;
+    height: 200px;
+    max-height: 200px;
 }
 
-#exchanger > img {
-    max-width: 1200px;
+    #exchanger > img {
+        max-width: 1200px;
+    }
+
+.shown-container {
+    display: inherit;
+}
+
+.hidden-container {
+    display: none;
+}
+
+#exchanger-container {
+    min-height: 200px;
+}
+
+.panel > .panel-heading {
+    height: 26px;
+    padding: 2px 20px;
+    font-size: 14px;
+}
+
+#nav-container {
+    position: relative;
+}
+
+.navbar-onstatictop {
+    background-color: transparent !important;
+    border: none;
+    width: 100%;
+}
+
+.navbar-onfixedtop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white !important;
+    border: none;
+}
+
+ul.navbar-nav > li > *, ul.navbar-nav > li > *:hover {
+    border: none;
+}
+
+.navbartabs-brand:hover, ul.navbar-nav > li:hover, ul.navbar-nav > li:hover .navbartabs {
+    background-color: lavender !important;
+}
+
+#navbar {
+    -webkit-box-shadow: 0 6px 17px -10px #000000;
+    -moz-box-shadow: 0 6px 17px -10px #000000;
+    -o-box-shadow: 0 6px 17px -10px #000000;
+    box-shadow: 0 6px 17px -10px #000000;
+}
+
+#nav-container {
+    padding-bottom: 0;
+}
+
+.navbartabs, .navbartabs-brand {
+    color: black !important;
+}
+
+.navbartabs-onfixed {
+    background-color: white !important;
+    font-size: 18px;
+}
+
+.navbartabs {
+    white-space: nowrap;
+}
+
+.navbartabs-onstatic {
+    background-color: transparent !important;
+    padding-right: 15px;
+    font-size: 22px;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+#register-description-container {
+    margin: 25px 0;
+}
+
+dl.dl-horizontal > dt {
+    width: 20%;
+    padding-top: 1.5%;
+    padding-left: 0;
+    white-space: normal;
+}
+
+dl.dl-horizontal > dd {
+    width: 65%;
+    padding-top: 1.5%;
+    padding-left: 5%;
+    white-space: normal;
+}
+
+#register-title {
+    margin-top: 50px;
 }

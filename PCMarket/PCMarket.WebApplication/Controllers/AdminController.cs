@@ -1,6 +1,4 @@
-﻿using PCMarket.Models.ViewModels.News;
-
-namespace PCMarket.WebApplication.Controllers
+﻿namespace PCMarket.WebApplication.Controllers
 {
     using System.Web;
     using System.Web.Mvc;

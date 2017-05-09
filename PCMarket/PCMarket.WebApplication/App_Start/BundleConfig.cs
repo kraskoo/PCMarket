@@ -10,8 +10,14 @@
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery-ui").Include(
+                "~/Scripts/jquery-ui.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
                         "~/Scripts/common.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/affix-navbar").Include(
+                        "~/Scripts/affix-navbar.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/image-exchanger").Include(
                         "~/Scripts/imageExchanger.js"));

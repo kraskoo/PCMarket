@@ -1,9 +1,7 @@
-﻿using System.Data.Entity;
-using System.Text.RegularExpressions;
-
-namespace PCMarket.Services.UserServices
+﻿namespace PCMarket.Services.UserServices
 {
     using System;
+    using System.Data.Entity;
     using System.Linq;
     using System.Linq.Expressions;
     using Microsoft.AspNet.Identity.EntityFramework;

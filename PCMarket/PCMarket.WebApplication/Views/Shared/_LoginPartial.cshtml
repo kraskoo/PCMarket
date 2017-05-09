@@ -1,20 +1,2 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    <form method="post" action="@Url.Action("LogOff", "Account")" id="logoutForm" class="navbar-right">
-        @Html.AntiForgeryToken()
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="@Url.Action("Index", "Manage")" title="Manage">Hello @User.Identity.GetUserName()!</a>
-            </li>
-            <li><a id="logOff" role="button">Log off</a></li>
-        </ul>
-    </form>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="@Url.Action("Register", "Account")" id="registerLink">Register</a></li>
-        <li><a href="@Url.Action("Login", "Account")" id="loginLink">Log in</a></li>
-    </ul>
-}
+@(Request.IsAuthenticated ? Html.Partial("_AuthenticatedUserNavbarPart") : Html.Partial("_AnonymousUserNavbarPart"))

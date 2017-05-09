@@ -209,7 +209,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.readable.css" />
     <Content Include="Content\bootstrap.readable.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Taken.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -221,10 +225,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\Hardware.png" />
     <Content Include="Images\Intel.png" />
     <Content Include="Images\Motherboard.png" />
+    <Content Include="Scripts\affix-navbar.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\common.js" />
@@ -234,6 +244,8 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -290,6 +302,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Admin\EditSoftwareNew.cshtml" />
     <Content Include="Views\Admin\EditHardwareNew.cshtml" />
+    <Content Include="Views\Shared\_AnonymousUserNavbarPart.cshtml" />
+    <Content Include="Views\Shared\_AuthenticatedUserNavbarPart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Component\" />

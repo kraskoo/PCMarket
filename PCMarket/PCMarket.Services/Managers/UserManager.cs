@@ -94,7 +94,7 @@
 
             for (var i = 1; i < wheres.Length; i++)
             {
-                set = set.Where(wheres[1]);
+                set = set.Where(wheres[i]);
             }
 
             return await set.FirstOrDefaultAsync();
