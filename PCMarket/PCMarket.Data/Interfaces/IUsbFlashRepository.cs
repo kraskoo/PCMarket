@@ -2,7 +2,7 @@
 {
     using Models.Entities.StorageDevices;
 
-    public interface IUsbFlashRepository : IRepository<UsbFlash>
+    public interface IUsbFlashRepository : IPcMarketRepository<UsbFlash>
     {
     }
 }

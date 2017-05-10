@@ -1,4 +1,6 @@
-﻿namespace PCMarket.Models.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PCMarket.Models.Entities
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -32,6 +34,7 @@
         public int Id { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
         [StringLength(50, MinimumLength = 3)]
         [Display(Name = "Company name")]
         public string CompanyName { get; set; }
@@ -42,7 +45,7 @@
         public string LogoImageUrl { get; set; }
 
         [Required]
-        [StringLength(20, MinimumLength = 3)]
+        [StringLength(5000, MinimumLength = 3)]
         public string Description { get; set; }
 
         [Display(Name = "Establish On")]

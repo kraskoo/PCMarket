@@ -2,7 +2,7 @@
 {
     using Models.Entities.StorageDevices;
 
-    public interface IHardDriveRepository : IRepository<HardDrive>
+    public interface IHardDriveRepository : IPcMarketRepository<HardDrive>
     {
     }
 }

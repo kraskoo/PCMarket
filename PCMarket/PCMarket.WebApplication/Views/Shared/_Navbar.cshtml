@@ -18,11 +18,24 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="@Url.Action("Index", "Home")" class="dropdown-toggle navbartabs" data-toggle="dropdown">Categories</a>
+                    <a href="@Url.Action("Index", "Home")" class="dropdown-toggle navbartabs" data-toggle="dropdown">Components</a>
                     <ul class="dropdown-menu">
-                        <li><a href="@Url.Action("Index", "Home")">Category 1</a></li>
-                        <li><a href="@Url.Action("Index", "Home")">Category 2</a></li>
-                        <li><a href="@Url.Action("Index", "Home")">Category 3</a></li>
+                        <li class="dropdown dropdown-submenu">
+                            <a href="@Url.Action("Index", "Home")" class="dropdown-toggle navbartabs" data-toggle="dropdown">Core Components</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Processors", "Component")">Processors</a></li>
+                                <li><a href="@Url.Action("Motherboards", "Component")">Motherboards</a></li>
+                                <li><a href="@Url.Action("VideoCards", "Component")">Video Cards</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-submenu">
+                            <a href="@Url.Action("Index", "Home")" class="dropdown-toggle navbartabs" data-toggle="dropdown">Storage Devices</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("BackupDevices", "Component")">Backup Devices</a></li>
+                                <li><a href="@Url.Action("HardDrives", "Component")">Hard Drives</a></li>
+                                <li><a href="@Url.Action("SolidStateDrives", "Component")">Solid State Drives</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li><a href="@Url.Action("Index", "Home")" class="navbartabs">About</a></li>

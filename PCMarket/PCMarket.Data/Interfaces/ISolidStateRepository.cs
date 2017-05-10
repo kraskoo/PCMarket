@@ -2,7 +2,7 @@
 {
     using Models.Entities.StorageDevices;
 
-    public interface ISolidStateRepository : IRepository<SolidStateDrive>
+    public interface ISolidStateRepository : IPcMarketRepository<SolidStateDrive>
     {
     }
 }

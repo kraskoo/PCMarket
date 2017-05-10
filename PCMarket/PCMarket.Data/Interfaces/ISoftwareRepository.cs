@@ -2,7 +2,7 @@
 {
     using Models.Entities.Softwares;
 
-    public interface ISoftwareRepository : IRepository<Software>
+    public interface ISoftwareRepository : IPcMarketRepository<Software>
     {
     }
 }

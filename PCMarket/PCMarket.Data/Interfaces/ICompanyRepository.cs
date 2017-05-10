@@ -2,7 +2,7 @@
 {
     using Models.Entities;
 
-    public interface ICompanyRepository : IRepository<Company>
+    public interface ICompanyRepository : IPcMarketRepository<Company>
     {
     }
 }

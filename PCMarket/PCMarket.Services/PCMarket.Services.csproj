@@ -112,6 +112,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.3\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
       <Private>True</Private>
@@ -151,15 +152,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyService.cs" />
+    <Compile Include="ComponentService.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="Features\DropboxClientService.cs" />
     <Compile Include="IdentityOperators\IdentitySignInOperator.cs" />
     <Compile Include="IdentityOperators\IdentityUserOperator.cs" />
     <Compile Include="IdentityService.cs" />
-    <Compile Include="Interfaces\ICompanyService.cs" />
     <Compile Include="Managers\ApplicationSignInManager.cs" />
     <Compile Include="Managers\AuthenticationManager.cs" />
+    <Compile Include="Managers\FileManager.cs" />
     <Compile Include="Managers\RoleManager.cs" />
+    <Compile Include="Managers\TemproaryFileManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="NewsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

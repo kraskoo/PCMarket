@@ -191,6 +191,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\ComponentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -304,9 +305,14 @@
     <Content Include="Views\Admin\EditHardwareNew.cshtml" />
     <Content Include="Views\Shared\_AnonymousUserNavbarPart.cshtml" />
     <Content Include="Views\Shared\_AuthenticatedUserNavbarPart.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Component\" />
+    <Content Include="Views\Company\All.cshtml" />
+    <Content Include="Views\Company\Add.cshtml" />
+    <Content Include="Views\Component\Processors.cshtml" />
+    <Content Include="Views\Component\Motherboards.cshtml" />
+    <Content Include="Views\Component\HardDrives.cshtml" />
+    <Content Include="Views\Component\SolidStateDrives.cshtml" />
+    <Content Include="Views\Component\BackupDevices.cshtml" />
+    <Content Include="Views\Component\VideoCards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -331,6 +337,7 @@
       <Name>PCMarket.Services</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

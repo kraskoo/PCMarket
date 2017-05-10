@@ -2,7 +2,7 @@
 {
     using Models.Entities.Cores;
 
-    public interface IMotherboardRepository : IRepository<Motherboard>
+    public interface IMotherboardRepository : IPcMarketRepository<Motherboard>
     {
     }
 }

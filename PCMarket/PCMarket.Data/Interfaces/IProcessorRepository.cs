@@ -2,7 +2,7 @@
 {
     using Models.Entities.Cores;
 
-    public interface IProcessorRepository : IRepository<Processor>
+    public interface IProcessorRepository : IPcMarketRepository<Processor>
     {
     }
 }

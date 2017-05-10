@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
-    Microsoft ResX Schema
+    Microsoft ResX Schema 
     
     Version 2.0
     
@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DropboxAccessToken" xml:space="preserve">
-    <value>dbW97qkoJY4AAAAAAAAANBLu9OImnwka85Fq0_dLsoklDyCKO9Kz12WGaQGo1NPk</value>
+    <value>dbW97qkoJY4AAAAAAAAAPUqntc6mFLj5GSPcb7qCWC_Isn3HWxB08LMX3gda2vFy</value>
   </data>
   <data name="DropboxApplicationKey" xml:space="preserve">
-    <value>d85tt5p2sb4hc0p</value>
+    <value>h9puiyb8guvaaw3</value>
   </data>
   <data name="DropboxApplicationSecrete" xml:space="preserve">
-    <value>mmomgaftv2igwsr</value>
+    <value>isef1xpn3zg2mbp</value>
   </data>
 </root>

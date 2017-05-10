@@ -2,7 +2,7 @@
 {
     using Models.Entities.News;
 
-    public interface IHardwareNewRepository : IExtendedRepository<HardwareNew>
+    public interface IHardwareNewRepository : IPcMarketRepository<HardwareNew>
     {
     }
 }

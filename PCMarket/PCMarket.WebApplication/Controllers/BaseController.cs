@@ -6,6 +6,7 @@
     using Data;
     using Data.DataModels;
     using Services.UserServices;
+    using Services.Managers;
 
     public abstract class BaseController : Controller
     {

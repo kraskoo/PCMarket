@@ -105,6 +105,10 @@ ul.navbar-nav > li > *, ul.navbar-nav > li > *:hover {
     margin: 25px 0;
 }
 
+#company-container {
+    margin: 5px 0;
+}
+
 dl.dl-horizontal > dt {
     width: 20%;
     padding-top: 1.5%;

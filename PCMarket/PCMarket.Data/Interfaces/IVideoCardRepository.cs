@@ -2,7 +2,7 @@
 {
     using Models.Entities.Cores;
 
-    public interface IVideoCardRepository : IRepository<VideoCard>
+    public interface IVideoCardRepository : IPcMarketRepository<VideoCard>
     {
     }
 }

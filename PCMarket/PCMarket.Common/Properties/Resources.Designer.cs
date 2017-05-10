@@ -61,7 +61,7 @@ namespace PCMarket.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to dbW97qkoJY4AAAAAAAAANBLu9OImnwka85Fq0_dLsoklDyCKO9Kz12WGaQGo1NPk.
+        ///   Looks up a localized string similar to dbW97qkoJY4AAAAAAAAAPUqntc6mFLj5GSPcb7qCWC_Isn3HWxB08LMX3gda2vFy.
         /// </summary>
         internal static string DropboxAccessToken {
             get {
@@ -70,7 +70,7 @@ namespace PCMarket.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to d85tt5p2sb4hc0p.
+        ///   Looks up a localized string similar to h9puiyb8guvaaw3.
         /// </summary>
         internal static string DropboxApplicationKey {
             get {
@@ -79,7 +79,7 @@ namespace PCMarket.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to mmomgaftv2igwsr.
+        ///   Looks up a localized string similar to isef1xpn3zg2mbp.
         /// </summary>
         internal static string DropboxApplicationSecrete {
             get {

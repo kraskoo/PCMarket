@@ -87,9 +87,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModels\BaseBindingModels.cs" />
+    <Compile Include="BindingModels\CompanyBindingModel.cs" />
+    <Compile Include="BindingModels\Cores\MotherboardBindingModel.cs" />
+    <Compile Include="BindingModels\Cores\ProcessorBindingModel.cs" />
+    <Compile Include="BindingModels\Cores\VideoCardBindingModel.cs" />
     <Compile Include="BindingModels\News\BaseNewBindingModel.cs" />
     <Compile Include="BindingModels\News\HardwareNewBindingModel.cs" />
     <Compile Include="BindingModels\News\SoftwareNewBindingModel.cs" />
+    <Compile Include="BindingModels\StorageDevices\HardDriveBindingModel.cs" />
+    <Compile Include="BindingModels\StorageDevices\SolidStateDriveBindingModel.cs" />
+    <Compile Include="BindingModels\StorageDevices\StorageDeviceBindingModel.cs" />
+    <Compile Include="BindingModels\StorageDevices\UsbFlashBindingModel.cs" />
     <Compile Include="Entities\StorageDevices\BackupDevice.cs" />
     <Compile Include="Entities\StorageDevices\HardDrive.cs" />
     <Compile Include="Entities\StorageDevices\SolidStateDrive.cs" />
@@ -115,9 +124,14 @@
     <Compile Include="Interfaces\INew.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AddCompanyViewModel.cs" />
-    <Compile Include="ViewModels\DeleteCompanyViewModel.cs" />
-    <Compile Include="ViewModels\EditCompanyViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CompanyViewModel.cs" />
+    <Compile Include="ViewModels\Cores\VideoCardViewModels.cs" />
+    <Compile Include="ViewModels\Cores\MotherboardViewModel.cs" />
+    <Compile Include="ViewModels\Cores\ProcessorViewModel.cs" />
+    <Compile Include="ViewModels\StorageDevices\BackupDeviceViewModel.cs" />
+    <Compile Include="ViewModels\StorageDevices\HardDriveViewModels.cs" />
+    <Compile Include="ViewModels\StorageDevices\SolidStateDriveViewModel.cs" />
     <Compile Include="ViewModels\Identity\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\Identity\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\Identity\ConfigureTwoFactorViewModel.cs" />
@@ -138,6 +152,8 @@
     <Compile Include="ViewModels\News\BaseNewViewModel.cs" />
     <Compile Include="ViewModels\News\HardwareNewViewModel.cs" />
     <Compile Include="ViewModels\News\SoftwareNewViewModel.cs" />
+    <Compile Include="ViewModels\StorageDevices\StorageDeviceViewModel.cs" />
+    <Compile Include="ViewModels\StorageDevices\UsbFlashViewModels.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

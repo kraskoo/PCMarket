@@ -2,7 +2,7 @@
 {
     using Models.Entities.Users;
 
-    public interface IUserRepository<T> : IExtendedRepository<T>
+    public interface IUserRepository<T> : IPcMarketRepository<T>
         where T : ApplicationUser, new()
     {
     }

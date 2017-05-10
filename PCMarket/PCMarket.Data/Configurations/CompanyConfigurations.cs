@@ -8,19 +8,19 @@
         public CompanyConfigurations()
         {
             this.HasOptional(c => c.BackupDevices)
-                .WithRequired()
+                .WithOptionalPrincipal()
                 .WillCascadeOnDelete(false);
 
             this.HasOptional(c => c.HardDrives)
-                .WithRequired()
+                .WithOptionalPrincipal()
                 .WillCascadeOnDelete(false);
 
             this.HasOptional(c => c.Motherboards)
-                .WithRequired()
+                .WithOptionalPrincipal()
                 .WillCascadeOnDelete(false);
 
             this.HasOptional(c => c.Processors)
-                .WithRequired()
+                .WithOptionalPrincipal()
                 .WillCascadeOnDelete(false);
 
             this.HasOptional(c => c.SolidStateDrives)

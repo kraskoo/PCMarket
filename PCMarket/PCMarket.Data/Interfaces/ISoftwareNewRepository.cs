@@ -2,7 +2,7 @@
 {
     using Models.Entities.News;
 
-    public interface ISoftwareNewRepository : IExtendedRepository<SoftwareNew>
+    public interface ISoftwareNewRepository : IPcMarketRepository<SoftwareNew>
     {
     }
 }

@@ -14,14 +14,14 @@
         {
         }
 
-        public CompanyRepository(PcMarketContextFactory context) : this(
+        public CompanyRepository(
+            PcMarketContextFactory context) : this(
             context,
             new RepositoryCrudAdapter<Company>(
                 new CreateEntity<Company>(context),
                 new UpdateEntity<Company>(context),
                 new DeleteEntity<Company>(context)))
         {
-            
         }
     }
 }

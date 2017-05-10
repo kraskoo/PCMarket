@@ -11,9 +11,11 @@
         }
 
         [Required]
+        [MinLength(3)]
         public string Type { get; set; }
 
         [Required]
+        [MinLength(2)]
         public string Series { get; set; }
 
         public int CompanyId { get; set; }

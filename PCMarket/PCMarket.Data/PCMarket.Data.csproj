@@ -55,6 +55,7 @@
     <Compile Include="Configurations\HardwareNewConfigurations.cs" />
     <Compile Include="Configurations\SoftwareNewConfigurations.cs" />
     <Compile Include="DataModels\CompanyUnitOfWork.cs" />
+    <Compile Include="DataModels\ComponentUnitOfWork.cs" />
     <Compile Include="DataModels\ContextFactory.cs" />
     <Compile Include="DataModels\CrudOperations\CreateEntity.cs" />
     <Compile Include="DataModels\CrudOperations\DeleteEntity.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Interfaces\CrudOperations\ICreateable.cs" />
     <Compile Include="Interfaces\CrudOperations\IDeleteable.cs" />
     <Compile Include="Interfaces\CrudOperations\IUpdateable.cs" />
+    <Compile Include="Interfaces\IComponentUnitOfWork.cs" />
     <Compile Include="Interfaces\INewsUnitOfWork.cs" />
     <Compile Include="Interfaces\IAdminUserRepository.cs" />
     <Compile Include="Interfaces\IBackupRepository.cs" />
@@ -78,7 +80,7 @@
     <Compile Include="Interfaces\IContextFactory.cs" />
     <Compile Include="Interfaces\ICrudAdapter.cs" />
     <Compile Include="Interfaces\IDataWorker.cs" />
-    <Compile Include="Interfaces\IExtendedRepository.cs" />
+    <Compile Include="Interfaces\IPcMarketRepository.cs" />
     <Compile Include="Interfaces\IHardDriveRepository.cs" />
     <Compile Include="Interfaces\IHardwareNewRepository.cs" />
     <Compile Include="Interfaces\IIdentityRepository.cs" />
@@ -97,21 +99,13 @@
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IUserUnitOfWork.cs" />
     <Compile Include="Interfaces\IVideoCardRepository.cs" />
-    <Compile Include="Migrations\201705050016466_Initial.cs" />
-    <Compile Include="Migrations\201705050016466_Initial.Designer.cs">
-      <DependentUpon>201705050016466_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201705101149520_Initial.cs" />
+    <Compile Include="Migrations\201705101149520_Initial.Designer.cs">
+      <DependentUpon>201705101149520_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705050226278_Second.cs" />
-    <Compile Include="Migrations\201705050226278_Second.Designer.cs">
-      <DependentUpon>201705050226278_Second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705050241059_Admin-News-Relation.cs" />
-    <Compile Include="Migrations\201705050241059_Admin-News-Relation.Designer.cs">
-      <DependentUpon>201705050241059_Admin-News-Relation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705050503561_FixNewsFieldsLength.cs" />
-    <Compile Include="Migrations\201705050503561_FixNewsFieldsLength.Designer.cs">
-      <DependentUpon>201705050503561_FixNewsFieldsLength.cs</DependentUpon>
+    <Compile Include="Migrations\201705101219052_UpdateDescriptionStates.cs" />
+    <Compile Include="Migrations\201705101219052_UpdateDescriptionStates.Designer.cs">
+      <DependentUpon>201705101219052_UpdateDescriptionStates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PcMarketContext.cs" />
@@ -120,7 +114,7 @@
     <Compile Include="Repositories\BackupDeviceRepository.cs" />
     <Compile Include="Repositories\ClientUserRepository.cs" />
     <Compile Include="Repositories\CompanyRepository.cs" />
-    <Compile Include="Repositories\ExtendedRepository.cs" />
+    <Compile Include="Repositories\PcMarketRepository.cs" />
     <Compile Include="Repositories\HardDriveRepository.cs" />
     <Compile Include="Repositories\HardwareNewRepository.cs" />
     <Compile Include="Repositories\IdentityRepository.cs" />
@@ -150,17 +144,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705050016466_Initial.resx">
-      <DependentUpon>201705050016466_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705101149520_Initial.resx">
+      <DependentUpon>201705101149520_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050226278_Second.resx">
-      <DependentUpon>201705050226278_Second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050241059_Admin-News-Relation.resx">
-      <DependentUpon>201705050241059_Admin-News-Relation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050503561_FixNewsFieldsLength.resx">
-      <DependentUpon>201705050503561_FixNewsFieldsLength.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705101219052_UpdateDescriptionStates.resx">
+      <DependentUpon>201705101219052_UpdateDescriptionStates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

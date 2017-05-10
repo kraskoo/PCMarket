@@ -1,25 +1,26 @@
-﻿namespace PCMarket.TestCaser
+﻿using System.Reflection;
+using PCMarket.Models.Entities;
+
+namespace PCMarket.TestCaser
 {
     using System;
     using Common.Extensions;
-    using Services.Features;
+    using Services.Managers;
+    using Data;
 
     public class Startup
     {
         public static void Main()
         {
             TestSplitPascalCaseWords();
-            TestDropboxService();
-        }
-
-        private static void TestDropboxService()
-        {
-            var dropbox = new DropboxClientService();
-            var files = dropbox.Files.ListFolderAsync("/peshofolder").Result;
-            foreach (var entry in files.Entries)
-            {
-                Console.WriteLine(entry.Name);
-            }
+            //var fileManager = new TemproaryFileManager();
+            //var fileBytes = fileManager.GetRetFileBytes(@"D:\User\Desktop\screen.png");
+            //fileManager.UploadFile(fileBytes, @"D:\User\Desktop\23f.png");
+            //FileManager fileManager = new FileManager();
+            //Console.WriteLine(fileManager.CheckIfDirectoryExists("/pesho"));
+            //Console.WriteLine(fileManager.CheckIfFileExists("/pesho/ombre/do10.txt"));
+            //Console.WriteLine(fileManager.DeleteFolder("/pesho10superpower"));
+            //Console.WriteLine(fileManager.SaveToFile(@"/pesho10superpower", "/App.config"));
         }
 
         private static void TestSplitPascalCaseWords()

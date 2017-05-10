@@ -54,7 +54,6 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new CompanyConfigurations());
             modelBuilder.Configurations.Add(new SoftwareNewConfigurations());
             modelBuilder.Configurations.Add(new HardwareNewConfigurations());
         }

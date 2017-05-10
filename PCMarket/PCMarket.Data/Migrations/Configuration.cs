@@ -9,7 +9,7 @@ namespace PCMarket.Data.Migrations
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(PcMarketContext context)

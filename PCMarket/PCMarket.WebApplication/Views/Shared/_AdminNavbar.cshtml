@@ -20,12 +20,20 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="@Url.Action("Index", "Home")" class="dropdown-toggle navbartabs" data-toggle="dropdown">Categories</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index", "Home")">Category 1</a></li>
-                            <li><a href="@Url.Action("Index", "Home")">Category 2</a></li>
-                            <li><a href="@Url.Action("Index", "Home")">Category 3</a></li>
-                        </ul>
+                    <a href="@Url.Action("Index", "Home")" class="dropdown-toggle navbartabs" data-toggle="dropdown">Components</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="@Url.Action("Index", "Home")">Core Components</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Processors", "Component")">Processors</a></li>
+                                <li><a href="@Url.Action("Hardware", "News")">Hardware News</a></li>
+                                <li><a href="@Url.Action("AddSoftwareNew", "Admin")">Add Software News</a></li>
+                                <li><a href="@Url.Action("AddHardwareNew", "Admin")">Add Hardware News</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="@Url.Action("Index", "Home")">Category 2</a></li>
+                        <li><a href="@Url.Action("Index", "Home")">Category 3</a></li>
+                    </ul>
                 </li>
                 <li><a href="@Url.Action("Index", "Home")" class="navbartabs">About</a></li>
                 <li><a href="@Url.Action("Index", "Home")" class="navbartabs">Contact</a></li>
