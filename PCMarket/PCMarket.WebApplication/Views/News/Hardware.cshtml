@@ -4,13 +4,21 @@
     ViewBag.Title = "Hardware News";
 }
 
-<h2>Hardware News</h2>
+<div class="col-md-8" id="page-title">
+    <h2>Hardware News</h2>
+</div>
+@if (this.User.IsInRole("Admin"))
+{
+    <div class="col-md-4" id="create-btn">
+        <a href="@Url.Action("AddHardwareNew", "Admin")" role="button" class="btn btn-default">Create a hardware new</a>
+    </div>
+}
 
 <table class="table table-responsive">
     <tr>
         <th>Title</th>
         <th>Subject</th>
-        <th>Body</th>
+        <th>ContentBody</th>
         <th>Full content</th>
         @if (this.User.IsInRole("Admin"))
         {
@@ -23,7 +31,7 @@
         <tr>
             <td>@string.Join(string.Empty, hardNew.Title.Take(30))...</td>
             <td>@hardNew.Subject</td>
-            <td>@string.Join(string.Empty, hardNew.Body.Take(30))...</td>
+            <td>@string.Join(string.Empty, hardNew.ContentBody.Take(30))...</td>
             <td><a href="@Url.Action("HardwareNewsById", "News", new { id = hardNew.Id })" class="btn btn-default" role="button">Read More</a></td>
             @if (this.User.IsInRole("Admin"))
             {

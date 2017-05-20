@@ -1,4 +1,5 @@
-﻿@model IEnumerable<PCMarket.Models.ViewModels.Cores.ProcessorViewModel>
+﻿@using PCMarket.Models.ViewModels.Cores
+@model IEnumerable<ProcessorViewModel>
 
 @{
     ViewBag.Title = "Processors";
@@ -6,16 +7,10 @@
 
 <h2>Processors</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
+            @Html.DisplayNameFor(model => model.CompanyName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Type)
@@ -23,16 +18,18 @@
         <th>
             @Html.DisplayNameFor(model => model.Series)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
+            @Html.DisplayFor(modelItem => item.CompanyName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Type)
@@ -41,9 +38,10 @@
             @Html.DisplayFor(modelItem => item.Series)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
         </td>
     </tr>
 }

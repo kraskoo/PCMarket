@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCMarket.Common", "PCMarket
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCMarket.TestCaser", "PCMarket.TestCaser\PCMarket.TestCaser.csproj", "{A8355689-7A07-4DDB-AE77-A44D51C69C6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCMarket.Services.ImageWorker", "PCMarket.Services.ImageWorker\PCMarket.Services.ImageWorker.csproj", "{B91CA3A9-1A94-4C4F-AF9C-78F1D5FF5C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{A8355689-7A07-4DDB-AE77-A44D51C69C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8355689-7A07-4DDB-AE77-A44D51C69C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8355689-7A07-4DDB-AE77-A44D51C69C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91CA3A9-1A94-4C4F-AF9C-78F1D5FF5C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91CA3A9-1A94-4C4F-AF9C-78F1D5FF5C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91CA3A9-1A94-4C4F-AF9C-78F1D5FF5C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91CA3A9-1A94-4C4F-AF9C-78F1D5FF5C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

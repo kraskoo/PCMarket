@@ -1,21 +1,19 @@
-﻿@model IEnumerable<PCMarket.Models.ViewModels.StorageDevices.HardDriveViewModels>
+﻿@using PCMarket.Models.ViewModels.StorageDevices
+@model IEnumerable<HardDriveViewModels>
 
 @{
-    ViewBag.Title = "HardDrives";
+    ViewBag.Title = "Hard Drives";
 }
 
-<h2>HardDrives</h2>
+<h2>Hard Drives</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.CompanyName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
+            @Html.DisplayNameFor(model => model.Series)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Size)
@@ -24,18 +22,20 @@
             @Html.DisplayNameFor(model => model.Speed)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Series)
+            @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
+            @Html.DisplayFor(modelItem => item.Series)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Size)
@@ -44,14 +44,11 @@
             @Html.DisplayFor(modelItem => item.Speed)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Series)
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.ImageUrl)
         </td>
     </tr>
 }
-
 </table>

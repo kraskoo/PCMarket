@@ -48,15 +48,7 @@
 
         public void AddCompany(CompanyBindingModel company, TemproaryFileManager fileManager)
         {
-            var webClient = new WebClient();
-            var uri = webClient.DownloadData(new Uri(company.LogoImageUrl));
-            if (!fileManager.ChechIfFolderExists($"{fileManager.BaseDirectoryContainer}\\Company"))
-            {
-                fileManager.CreateFolder($"{fileManager.BaseDirectoryContainer}\\Company");
-            }
-
-            var sourcepath = $"{fileManager.BaseDirectoryContainer}\\Company\\{fileManager.GetFilename(company.LogoImageUrl)}";
-            fileManager.UploadFile(uri, sourcepath);
+            var sourcepath = fileManager.GetLocalDownloadedImagePath(company.LogoImageUrl, "Company");
             this.UnitOfWork.Companies.Create(new Company
             {
                 CompanyName = company.CompanyName,

@@ -1,21 +1,18 @@
-﻿@model IEnumerable<PCMarket.Models.ViewModels.StorageDevices.SolidStateDriveViewModel>
+﻿@using PCMarket.Models.ViewModels.StorageDevices
+@model IEnumerable<SolidStateDriveViewModel>
 
 @{
-    ViewBag.Title = "SolidStateDrives";
+    ViewBag.Title = "Solid State Drives";
 }
 
-<h2>SolidStateDrives</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>Solid State Drives</h2>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.CompanyName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
+            @Html.DisplayNameFor(model => model.Series)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Size)
@@ -24,9 +21,11 @@
             @Html.DisplayNameFor(model => model.Speed)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Series)
+            @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -45,11 +44,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Series)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

@@ -1,5 +1,6 @@
 ﻿namespace PCMarket.Models.ViewModels.News
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class BaseNewViewModel
@@ -13,6 +14,6 @@
         public string Subject { get; set; }
 
         [MinLength(20)]
-        public string Body { get; set; }
+        public ICollection<string> ContentBody { get; set; }
     }
 }

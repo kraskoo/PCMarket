@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace PCMarket.Models.Entities
+﻿namespace PCMarket.Models.Entities
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Collections.Generic;
     using Cores;
     using Common;
@@ -40,7 +39,7 @@ namespace PCMarket.Models.Entities
         public string CompanyName { get; set; }
 
         [Required]
-        [Display(Name = "Logo")]
+        [Display(Name = "Image Logo Url")]
         [RegularExpression(Strings.UriPattern)]
         public string LogoImageUrl { get; set; }
 
@@ -62,6 +61,7 @@ namespace PCMarket.Models.Entities
             get { return this.processors; }
             set { this.processors = value; }
         }
+
 
         public virtual ICollection<VideoCard> VideoCards
         {

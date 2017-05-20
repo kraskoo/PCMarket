@@ -307,12 +307,12 @@
     <Content Include="Views\Shared\_AuthenticatedUserNavbarPart.cshtml" />
     <Content Include="Views\Company\All.cshtml" />
     <Content Include="Views\Company\Add.cshtml" />
-    <Content Include="Views\Component\Processors.cshtml" />
     <Content Include="Views\Component\Motherboards.cshtml" />
+    <Content Include="Views\Component\VideoCards.cshtml" />
     <Content Include="Views\Component\HardDrives.cshtml" />
     <Content Include="Views\Component\SolidStateDrives.cshtml" />
     <Content Include="Views\Component\BackupDevices.cshtml" />
-    <Content Include="Views\Component\VideoCards.cshtml" />
+    <Content Include="Views\Component\Processors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

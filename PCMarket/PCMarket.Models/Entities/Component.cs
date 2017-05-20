@@ -1,11 +1,11 @@
 ﻿namespace PCMarket.Models.Entities
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using Common;
     using Common.Enums;
-    using Interfaces;
 
-    public abstract class Component : IComponent
+    public abstract class Component : Interfaces.IComponent
     {
         private readonly ComponentType type;
 
@@ -22,11 +22,9 @@
 
         [Required]
         [RegularExpression(Strings.UriPattern)]
+        [DisplayName("Image Url")]
         public string ImageUrl { get; set; }
 
-        public override string ToString()
-        {
-            return this.type.ToString();
-        }
+        public new virtual string ToString => this.type.ToString();
     }
 }

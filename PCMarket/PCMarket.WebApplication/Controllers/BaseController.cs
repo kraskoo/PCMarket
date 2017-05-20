@@ -24,7 +24,7 @@
 
         protected bool IsInAdminRole()
         {
-            return this.User.IsInRole(RoleType.Admin.ToString());
+            return this.User.IsInRole(RoleType.Admin.ToString);
         }
 
         protected PcMarketContextFactory Context { get; }

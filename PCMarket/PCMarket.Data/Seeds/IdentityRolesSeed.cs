@@ -1,18 +1,13 @@
-namespace PCMarket.Data.Migrations
+﻿namespace PCMarket.Data.Seeds
 {
-    using System.Data.Entity.Migrations;
     using System.Linq;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Common.Enums;
+    using Interfaces;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<PcMarketContext>
+    public class IdentityRolesSeed : IPcMarketContextSeed
     {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = false;
-        }
-
-        protected override void Seed(PcMarketContext context)
+        public void Seed(PcMarketContext context)
         {
             if (!context.Roles.Any())
             {

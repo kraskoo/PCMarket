@@ -1,4 +1,6 @@
-﻿namespace PCMarket.WebApplication.Controllers
+﻿using PCMarket.Models.BindingModels.StorageDevices;
+
+namespace PCMarket.WebApplication.Controllers
 {
     using System.Web;
     using System.Web.Mvc;
@@ -29,6 +31,18 @@
             }
 
             private set { this.newsService = value; }
+        }
+
+        [HttpPost]
+        public ActionResult AddBackupDevice(BackupDeviceBindingModel backupDevice)
+        {
+            if (this.ModelState == null || !this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("BackupDevices", "Component", backupDevice);
+            }
+
+
+            return this.RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

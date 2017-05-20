@@ -43,6 +43,7 @@
                 .Select(p =>
                     new MotherboardViewModel
                     {
+                        CompanyName = p.Company.CompanyName,
                         Model = p.Model,
                         Type = p.Type,
                         Description = p.Description,
@@ -58,6 +59,7 @@
                 .Select(p =>
                     new VideoCardViewModel
                     {
+                        CompanyName = p.Company.CompanyName,
                         Description = p.Description,
                         ImageUrl = p.ImageUrl,
                         GpuArchitecture = p.GpuArchitecture,
@@ -76,6 +78,7 @@
                 .Select(p =>
                     new ProcessorViewModel
                     {
+                        CompanyName = p.Company.CompanyName,
                         Type = p.Type,
                         Series = p.Series,
                         Description = p.Description,
@@ -89,14 +92,15 @@
                 .HardDrives
                 .FindAll()
                 .Select(p => new HardDriveViewModels
-                    {
-                        Speed = p.Speed,
-                        Size = p.Size,
-                        SizeType = p.SizeType,
-                        Series = p.Series,
-                        Description = p.Description,
-                        ImageUrl = p.ImageUrl
-                    });
+                {
+                    CompanyName = p.Company.CompanyName,
+                    Speed = p.Speed,
+                    Size = p.Size,
+                    SizeType = p.SizeType,
+                    Series = p.Series,
+                    Description = p.Description,
+                    ImageUrl = p.ImageUrl
+                });
         }
 
         public IEnumerable<SolidStateDriveViewModel> GetAllSolidStates()
@@ -106,6 +110,7 @@
                 .FindAll()
                 .Select(p => new SolidStateDriveViewModel
                 {
+                    CompanyName = p.Company.CompanyName,
                     Speed = p.Speed,
                     Size = p.Size,
                     SizeType = p.SizeType,
@@ -122,6 +127,7 @@
                 .FindAll()
                 .Select(p => new UsbFlashViewModels
                 {
+                    CompanyName = p.Company.CompanyName,
                     Speed = p.Speed,
                     Size = p.Size,
                     SizeType = p.SizeType,
@@ -138,6 +144,7 @@
                 .FindAll()
                 .Select(p => new BackupDeviceViewModel
                 {
+                    CompanyName = p.Company.CompanyName,
                     Speed = p.Speed,
                     Size = p.Size,
                     SizeType = p.SizeType,

@@ -1,5 +1,7 @@
 ﻿namespace PCMarket.Models.Entities.News
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using Common.Enums;
     using Interfaces;
@@ -9,6 +11,7 @@
         protected BaseNew(NewType category)
         {
             this.Category = category;
+            this.NewsDate = DateTime.Now;
         }
 
         protected NewType Category { get; }
@@ -22,7 +25,9 @@
         [MinLength(10)]
         public string Subject { get; set; }
 
-        [MinLength(20)]
-        public string Body { get; set; }
+        [MinLength(1)]
+        public ICollection<string> ContentBody { get; set; }
+
+        public DateTime NewsDate { get; }
     }
 }

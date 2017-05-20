@@ -38,7 +38,7 @@
             {
                 Title = softwareNewBindingModel.Title,
                 Subject = softwareNewBindingModel.Subject,
-                Body = softwareNewBindingModel.Body,
+                ContentBody = softwareNewBindingModel.ContentBody,
                 Author = user
             });
             this.UnitOfWork.SaveChanges();
@@ -53,13 +53,13 @@
             {
                 Id = @new.Id,
                 Title = @new.Title,
-                Body = @new.Body,
+                ContentBody = @new.ContentBody,
                 Subject = @new.Subject
             } : new SoftwareNewViewModel
             {
                 Id = 0,
                 Title = "",
-                Body = "",
+                ContentBody = new string[0],
                 Subject = ""
             };
         }
@@ -73,7 +73,7 @@
                 {
                     Id = n.Id,
                     Title = n.Title,
-                    Body = n.Body,
+                    ContentBody = n.ContentBody,
                     Subject = n.Subject
                 })
                 .OrderByDescending(s => s.Title)
@@ -84,22 +84,12 @@
                 {
                     Id = n.Id,
                     Title = n.Title,
-                    Body = n.Body,
+                    ContentBody = n.ContentBody,
                     Subject = n.Subject
                 })
                 .OrderByDescending(s => s.Subject)
                 .ThenByDescending(s => s.Subject)
                 .Take(count.Value);
-        }
-
-        public SoftwareNewViewModel GetShortVersion(SoftwareNewViewModel viewModel)
-        {
-            return new SoftwareNewViewModel
-            {
-                Title = $"{string.Join(string.Empty, viewModel.Title.Take(10))} ...",
-                Subject = $"{string.Join(string.Empty, viewModel.Subject.Take(8))} ...",
-                Body = $"{string.Join(string.Empty, viewModel.Body.Take(20))} ..."
-            };
         }
 
         public IEnumerable<HardwareNewViewModel> GetHardwareNews(int? count)
@@ -113,14 +103,14 @@
                     Id = e.Id,
                     Title = e.Title,
                     Subject = e.Subject,
-                    Body = e.Body
+                    ContentBody = e.ContentBody
                 }) :
                 entities.Select(e => new HardwareNewViewModel
                 {
                     Id = e.Id,
                     Title = e.Title,
                     Subject = e.Subject,
-                    Body = e.Body
+                    ContentBody = e.ContentBody
                 }).Take(count.Value);
         }
 
@@ -134,14 +124,14 @@
                     Id = 0,
                     Title = string.Empty,
                     Subject = string.Empty,
-                    Body = string.Empty
+                    ContentBody = new string[0]
                 } :
                 new HardwareNewViewModel
                 {
                     Id = @new.Id,
                     Title = @new.Title,
                     Subject = @new.Subject,
-                    Body = @new.Body
+                    ContentBody = @new.ContentBody
                 };
         }
 
@@ -151,7 +141,7 @@
             {
                 Title = bindingModel.Title,
                 Subject = bindingModel.Subject,
-                Body = bindingModel.Body,
+                ContentBody = bindingModel.ContentBody,
                 Author = author
             });
             this.UnitOfWork.SaveChanges();
@@ -163,7 +153,7 @@
             return new SoftwareNewBindingModel
             {
                 Id = @new.Id,
-                Body = @new.Body,
+                ContentBody = @new.ContentBody,
                 Title = @new.Title,
                 Subject = @new.Subject
             };
@@ -178,7 +168,7 @@
                         {
                             sn => sn.Id == bindingModel.Id
                         });
-            @new.Body = bindingModel.Body;
+            @new.ContentBody = bindingModel.ContentBody;
             @new.Title = bindingModel.Title;
             @new.Subject = bindingModel.Subject;
             this.UnitOfWork.SoftwareNews.Update(@new);
@@ -191,7 +181,7 @@
             return new HardwareNewBindingModel
             {
                 Id = @new.Id,
-                Body = @new.Body,
+                ContentBody = @new.ContentBody,
                 Title = @new.Title,
                 Subject = @new.Subject
             };
@@ -206,7 +196,7 @@
                         {
                             s => s.Id == bindingModel.Id
                         });
-            @new.Body = bindingModel.Body;
+            @new.ContentBody = bindingModel.ContentBody;
             @new.Title = bindingModel.Title;
             @new.Subject = bindingModel.Subject;
             this.UnitOfWork.HardwareNews.Update(@new);

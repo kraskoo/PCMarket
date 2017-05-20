@@ -80,6 +80,7 @@
     <Compile Include="Interfaces\IContextFactory.cs" />
     <Compile Include="Interfaces\ICrudAdapter.cs" />
     <Compile Include="Interfaces\IDataWorker.cs" />
+    <Compile Include="Interfaces\IPcMarketContextSeed.cs" />
     <Compile Include="Interfaces\IPcMarketRepository.cs" />
     <Compile Include="Interfaces\IHardDriveRepository.cs" />
     <Compile Include="Interfaces\IHardwareNewRepository.cs" />
@@ -128,6 +129,10 @@
     <Compile Include="Repositories\SolidStateDriveRepository.cs" />
     <Compile Include="Repositories\UsbFlashRepository.cs" />
     <Compile Include="Repositories\VideoCardRepository.cs" />
+    <Compile Include="Seeds\CommonSeed.cs" />
+    <Compile Include="Seeds\HardwareNewsSeed.cs" />
+    <Compile Include="Seeds\IdentityRolesSeed.cs" />
+    <Compile Include="Seeds\SoftwareNewsSeed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

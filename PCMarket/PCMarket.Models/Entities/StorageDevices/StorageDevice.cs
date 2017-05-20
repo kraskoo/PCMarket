@@ -30,9 +30,6 @@
         [ForeignKey(nameof(CompanyId))]
         public virtual Company Company { get; set; }
 
-        public override string ToString()
-        {
-            return this.StorageDeviceType.ToString();
-        }
+        public override string ToString => this.StorageDeviceType.ToString();
     }
 }

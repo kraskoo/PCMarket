@@ -2,6 +2,7 @@
 {
     using System;
     using System.Drawing;
+    using System.Net;
     using System.IO;
 
     public class TemproaryFileManager
@@ -77,6 +78,20 @@
         {
             var lastSlash = path.LastIndexOf("/", StringComparison.Ordinal);
             return path.Substring(lastSlash + 1, path.Length - lastSlash - 1);
+        }
+
+        public string GetLocalDownloadedImagePath(string logoImageUrl, string subDirectory)
+        {
+            var webClient = new WebClient();
+            var uri = webClient.DownloadData(new Uri(logoImageUrl));
+            if (!this.ChechIfFolderExists($"{BaseDirectoryContainer}\\{subDirectory}"))
+            {
+                this.CreateFolder($"{BaseDirectoryContainer}\\{subDirectory}");
+            }
+
+            var sourcepath = $"{this.BaseDirectoryContainer}\\{subDirectory}\\{this.GetFilename(logoImageUrl)}";
+            this.UploadFile(uri, sourcepath);
+            return sourcepath;
         }
     }
 }

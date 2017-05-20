@@ -1,61 +1,80 @@
 ﻿namespace PCMarket.WebApplication.Controllers
 {
+    using System.Web;
     using System.Web.Mvc;
     using Services;
     using Services.UserServices;
-
-    [RouteArea("Component")]
+    
+    [RoutePrefix("Component")]
     public class ComponentController : BaseController
     {
-        private readonly ComponentService componentService;
+        private ComponentService componentService;
 
         public ComponentController(
             UserService service,
             ComponentService componentService) : base(service)
         {
-            this.componentService = componentService;
+            this.ComponentService = componentService;
+        }
+
+        public ComponentController()
+        {
+        }
+
+        public ComponentService ComponentService
+        {
+            get
+            {
+                return this.componentService ?? (this.componentService =
+                           new ComponentService(this.Context, this.HttpContext.GetOwinContext()));
+            }
+
+            private set
+            {
+                this.componentService = value;
+            }
         }
 
         [HttpGet]
-        [Route("Processors")]
+        [Route("CoreComponents/Processors")]
         public ActionResult Processors()
         {
-            return this.View(this.componentService.GetAllProcessors());
+            return this.View(this.ComponentService.GetAllProcessors());
         }
 
         [HttpGet]
         [Route("CoreComponents/Motherboards")]
         public ActionResult Motherboards()
         {
-            return this.View(this.componentService.GetAllMotherboards());
+            return this.View(this.ComponentService.GetAllMotherboards());
         }
 
         [HttpGet]
         [Route("CoreComponents/VideoCards")]
         public ActionResult VideoCards()
         {
-            return this.View(this.componentService.GetAllVideoCards());
+            return this.View(this.ComponentService.GetAllVideoCards());
         }
 
         [HttpGet]
-        [Route("CoreComponents/HardDrives")]
+        [Route("StorageDevices/HardDrives")]
         public ActionResult HardDrives()
         {
-            return this.View(this.componentService.GetAllHardDrives());
+            return this.View(this.ComponentService.GetAllHardDrives());
         }
 
         [HttpGet]
-        [Route("SolidStateDrives")]
+        [Route("StorageDevices/SolidStateDrives")]
         public ActionResult SolidStateDrives()
         {
-            return this.View(this.componentService.GetAllSolidStates());
+            return this.View(this.ComponentService.GetAllSolidStates());
         }
 
         [HttpGet]
-        [Route("BackupDevices")]
+        [Route("StorageDevices/BackupDevices")]
         public ActionResult BackupDevices()
         {
-            return this.View(this.componentService.GetAllBackupDevices());
+            return this.View(this.ComponentService.GetAllBackupDevices());
         }
     }
 }

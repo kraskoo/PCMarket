@@ -13,9 +13,6 @@
 
         protected CoreComponentType CoreComponentType { get; }
 
-        public override string ToString()
-        {
-            return this.CoreComponentType.ToString();
-        }
+        public override string ToString => this.CoreComponentType.ToString();
     }
 }

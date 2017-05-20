@@ -95,6 +95,7 @@
     <Compile Include="BindingModels\News\BaseNewBindingModel.cs" />
     <Compile Include="BindingModels\News\HardwareNewBindingModel.cs" />
     <Compile Include="BindingModels\News\SoftwareNewBindingModel.cs" />
+    <Compile Include="BindingModels\StorageDevices\BackupDeviceBindingModel.cs" />
     <Compile Include="BindingModels\StorageDevices\HardDriveBindingModel.cs" />
     <Compile Include="BindingModels\StorageDevices\SolidStateDriveBindingModel.cs" />
     <Compile Include="BindingModels\StorageDevices\StorageDeviceBindingModel.cs" />
